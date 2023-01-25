@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Mine Sweeper!</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+
+    <h1> Mine Sweeper! </h1>
+    <!-- <h2> mines around: <span>0</span></h2> -->
+    <h3 class="timer"></h3>
+    <button class="restart" onclick="onInit()">😃</button>
+    <div class="difficults">
+        <h2>❤️ left : <span></span></h2>
+        <button onclick="level(this)">easy</button>
+        <button onclick="level(this)">hard</button>
+        <button onclick="level(this)">extreme</button>
+
+    </div>
+
+    <div class="board"></div>
+    <table>
+        <tbody class="board">
+
+        </tbody>
+    </table>
+
+    <script src="js/main.js"></script>
+    <script src="js/util.js"></script>
+</body>
+
+</html>
