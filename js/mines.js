@@ -51,7 +51,7 @@ function setMinesNegsCount(cellI, cellJ, board) {
 function showAllMines() {
     var elMines = document.querySelectorAll('.mine')
     for (var i = 0; i < elMines.length; i++) {
-
+        if (elMines[i].classList.contains('marked')) return
         elMines[i].classList.add('clicked')
     }
 }
@@ -59,7 +59,7 @@ function hideAllMines() {
     var elMines = document.querySelectorAll('.mine')
     for (var i = 0; i < elMines.length; i++) {
         if (elMines[i].classList.contains('marked')) return
-        elMines[i].classList.remove('clicked')
+        elMines[i].classList.toggle('clicked')
     }
 }
 
