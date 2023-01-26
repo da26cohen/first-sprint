@@ -54,3 +54,10 @@ function showAllMines() {
         elMines[i].classList.add('clicked')
     }
 }
+function hideAllMines() {
+    var elMines = document.querySelectorAll('.mine')
+    for (var i = 0; i < elMines.length; i++) {
+        elMines[i].classList.remove('clicked')
+    }
+}
+

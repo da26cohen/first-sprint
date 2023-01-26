@@ -3,12 +3,14 @@
 var gBoard
 var MINE = '💣'
 var elBtnRestart = document.querySelector('.restart')
+var elBtnHints =  document.querySelector('.hints')
 var firstClick = true
 var gTimerInterval
 
 var gLevel = {
     size: 4,
-    mines: 2
+    mines: 2,
+    hints: 2
 }
 
 var gGame = {
@@ -27,6 +29,7 @@ function onInit() {
     gBoard = buildBoard(gLevel.size)
     renderBoard(gBoard)
     countLife()
+    elBtnHints.innerText= '💡'.repeat(gLevel.hints)
 }
 
 function resetGame() {
@@ -157,6 +160,7 @@ function level(btn) {
     if (btn.innerText === 'easy') {
         gLevel.size = 4
         gLevel.mines = 2
+        gLevel.hints = 2
         gBoard = buildBoard(gLevel.size)
         resetGame()
         onInit()
@@ -164,6 +168,7 @@ function level(btn) {
     if (btn.innerText === 'hard') {
         gLevel.size = 8
         gLevel.mines = 14
+        gLevel.hints = 3
         gBoard = buildBoard(gLevel.size)
         resetGame()
         onInit()
@@ -171,6 +176,7 @@ function level(btn) {
     if (btn.innerText === 'extreme') {
         gLevel.size = 12
         gLevel.mines = 32
+        gLevel.hints = 4
         gBoard = buildBoard(gLevel.size)
         resetGame()
         onInit()
@@ -218,4 +224,12 @@ function playSoundlose() {
 function score() {
     var elH2 = document.querySelector('.modal h2 span')
     elH2.innerText = gGame.shownCount
+}
+function hint(btn) {
+    gLevel.hints--
+    if (btn.innerText !== '') {
+        showAllMines()
+        setTimeout(hideAllMines, 250)
+        btn.innerText = '💡'.repeat(gLevel.hints);
+    }
 }

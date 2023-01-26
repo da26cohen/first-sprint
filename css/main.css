@@ -122,3 +122,16 @@ footer {
     color: yellow;
     font-style: italic;
 }
+img{
+    width: 25px;
+    height: auto;
+}
+.hints{
+    width: 80px;
+    height: 25px;
+    border: 1px solid black;
+    background-color: rgb(240, 141, 141);
+    margin: auto;
+    text-align: center;
+    border-radius: 40px;
+}
