@@ -1,0 +1,141 @@
+body {
+    background-image: url('https://rare-gallery.com/uploads/posts/977107-artwork-military-submarine-vehicle-cyan-underwater.jpg');
+    text-align: center;
+}
+
+.dark {
+    background-image: none;
+    background-color: black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+h1 {
+    margin: 1%;
+    font-style: italic;
+    color: rgb(254, 0, 224);
+}
+
+h1:hover {
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    padding: 0px;
+    margin: 1%;
+    color: white
+}
+
+h2:hover {
+    color: rgb(159, 6, 247);
+}
+
+button {
+    width: 70px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: lightblue;
+    font-style: italic;
+    color: black;
+    border-radius: 30px;
+    border-color: rgb(204, 226, 246);
+}
+
+button:hover {
+    background-color: red;
+}
+
+.restart {
+    text-align: center;
+    margin: auto;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: yellow;
+    font-size: 17px;
+}
+
+.restart:hover {
+    background-color: purple;
+}
+
+.difficults {
+    padding: 4px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    background-color: rgb(240, 191, 131);
+}
+
+.nextNum {
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: rgb(151, 143, 237);
+
+}
+
+.cell {
+    color: transparent;
+    margin-top: 100px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    transition: 0.5s;
+    background-color: rgb(0, 198, 247);
+}
+
+
+.clicked {
+    color: black;
+    background-color: rgb(41, 4, 247);
+}
+
+.board td:hover {
+    background-color: rgb(17, 60, 216)
+}
+
+.moadl {
+    display: none;
+
+}
+
+.clicked.mine {
+    background-color: red;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    font-size: large;
+
+}
+
+.modal h2 {
+    display: block;
+    color: yellow;
+    font-style: italic;
+}
+.modal h2:hover{
+    color: red;
+}
+
+img {
+    width: 25px;
+    height: auto;
+}
+
+.hints {
+    width: 80px;
+    height: 25px;
+    border: 1px solid black;
+    background-color: rgb(240, 141, 141);
+    margin: auto;
+    text-align: center;
+    border-radius: 40px;
+}
