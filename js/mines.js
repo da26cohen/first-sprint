@@ -12,7 +12,7 @@ function getEmptyLocationMines(board) {
     var emptyLocations = []
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[0].length; j++) {
-            if (!board[i][j].isMine) {
+            if (!board[i][j].isMine && !board[i][j].isShown) {
                 emptyLocations.push({ i, j })
             }
         }
@@ -51,12 +51,14 @@ function setMinesNegsCount(cellI, cellJ, board) {
 function showAllMines() {
     var elMines = document.querySelectorAll('.mine')
     for (var i = 0; i < elMines.length; i++) {
+
         elMines[i].classList.add('clicked')
     }
 }
 function hideAllMines() {
     var elMines = document.querySelectorAll('.mine')
     for (var i = 0; i < elMines.length; i++) {
+        if (elMines[i].classList.contains('marked')) return
         elMines[i].classList.remove('clicked')
     }
 }

@@ -1,11 +1,13 @@
 'use strict'
 
+const MINE = '💣'
 var gBoard
-var MINE = '💣'
 var elBtnRestart = document.querySelector('.restart')
-var elBtnHints =  document.querySelector('.hints')
-var firstClick = true
+var elBtnHints = document.querySelector('.hints')
+var gFirstClick = true
 var gTimerInterval
+var gDifficult = 'easy'
+
 
 var gLevel = {
     size: 4,
@@ -23,26 +25,16 @@ var gGame = {
 
 
 function onInit() {
+    resetHints()
     clearInterval(gTimerInterval)
     timer()
     resetGame()
     gBoard = buildBoard(gLevel.size)
     renderBoard(gBoard)
     countLife()
-    elBtnHints.innerText= '💡'.repeat(gLevel.hints)
+    elBtnHints.innerText = '💡'.repeat(gLevel.hints)
 }
 
-function resetGame() {
-    elBtnRestart.style.backgroundColor = "yellow";
-    elBtnRestart.innerText = '😃'
-    gGame.shownCount = 0
-    gGame.life = 3
-    gGame.isOn = true
-    gGame.markedCount = 0
-    gGame.secsPassed = 0
-    firstClick = true
-    score()
-}
 
 function buildBoard(size) {
     const board = []
@@ -64,17 +56,17 @@ function buildBoard(size) {
 }
 
 function onCellClicked(elCell, i, j) {
-
-    if (firstClick) {
+    if (gFirstClick) {
         gBoard[i][j].isShown = true
         elCell.classList.add('clicked')
         putMines(gBoard, gLevel.mines)
         showMinesNugs()
         blowUpNegs(gBoard, i, j)
         renderBoard(gBoard)
-        firstClick = false
+        gFirstClick = false
     }
 
+    if (gBoard[i][j].isMine && gBoard[i][j].isShown) return
     if (!gGame.isOn) return
     if (elCell.innerText !== MINE) {
         gGame.shownCount++
@@ -125,7 +117,7 @@ function renderBoard(mat) {
 
             const cell = mat[i][j]
             var className = (cell.isMine === true) ? 'cell mine' : 'cell'
-            if (mat[i][j].isShown) className = 'cell clicked'
+            if (mat[i][j].isShown) className = 'cell clicked '
             const countMinesAround = cell.minesAroundCount
             var showenNugs = (countMinesAround === 0) ? ' ' : countMinesAround
             const showCell = (cell.isMine === true) ? MINE : showenNugs
@@ -152,12 +144,14 @@ function onCellMarked(elCell, i, j) {
     }
     document.addEventListener('contextmenu', (event) => { event.preventDefault(); });
     elCell.classList.toggle('clicked')
+    elCell.classList.add('marked')
     elCell.innerText = '🚩'
 }
 // difficults
 function level(btn) {
 
     if (btn.innerText === 'easy') {
+        gDifficult = 'easy'
         gLevel.size = 4
         gLevel.mines = 2
         gLevel.hints = 2
@@ -166,6 +160,7 @@ function level(btn) {
         onInit()
     }
     if (btn.innerText === 'hard') {
+        gDifficult = 'hard'
         gLevel.size = 8
         gLevel.mines = 14
         gLevel.hints = 3
@@ -174,6 +169,7 @@ function level(btn) {
         onInit()
     }
     if (btn.innerText === 'extreme') {
+        gDifficult = 'extreme'
         gLevel.size = 12
         gLevel.mines = 32
         gLevel.hints = 4
@@ -182,6 +178,7 @@ function level(btn) {
         onInit()
     }
 }
+
 
 function gameOver() {
     clearInterval(gTimerInterval)
@@ -206,7 +203,7 @@ function winGame() {
 
 function countLife() {
     var elH2 = document.querySelector('h2 span')
-    elH2.innerText = gGame.life
+    elH2.innerText = '❤️'.repeat(gGame.life);
 }
 
 function dark() {
@@ -232,4 +229,29 @@ function hint(btn) {
         setTimeout(hideAllMines, 250)
         btn.innerText = '💡'.repeat(gLevel.hints);
     }
+}
+
+function resetHints() {
+    if (gDifficult === 'easy') {
+        gLevel.hints = 2
+    }
+    if (gDifficult === 'hard') {
+        gLevel.hints = 3
+    }
+    if (gDifficult === 'extreme') {
+        gLevel.hints = 4
+    }
+}
+
+
+function resetGame() {
+    elBtnRestart.style.backgroundColor = "yellow";
+    elBtnRestart.innerText = '😃'
+    gGame.shownCount = 0
+    gGame.life = 3
+    gGame.isOn = true
+    gGame.markedCount = 0
+    gGame.secsPassed = 0
+    gFirstClick = true
+    score()
 }
