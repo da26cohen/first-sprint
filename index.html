@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>Mine Sweeper!</title>
+    <title> Mine Sweeper!</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body onload="onInit()">
 
-    <h1> Mine Sweeper! </h1>
-    <!-- <h2> mines around: <span>0</span></h2> -->
-    <h3 class="timer"></h3>
-    <button class="restart" onclick="onInit()">😃</button>
+    <h1> 🎇Mine Sweeper!🎇 </h1>
+    <h2 class="timer">00:00</h2>
+    <button class="restart" onclick="onInit()"></button>
     <div class="difficults">
         <h2>❤️ left : <span></span></h2>
         <button onclick="level(this)">easy</button>
         <button onclick="level(this)">hard</button>
         <button onclick="level(this)">extreme</button>
+        <button onclick="dark()">mode</button>
 
     </div>
 
@@ -26,9 +26,13 @@
 
         </tbody>
     </table>
-
+ <div class="modal">
+    <h2>the score is : <span></span></h2>
+ </div>
     <script src="js/main.js"></script>
+    <script src="js/mines.js"></script>
     <script src="js/util.js"></script>
 </body>
+<footer>dan cohen</footer>
 
 </html>

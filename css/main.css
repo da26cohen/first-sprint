@@ -1,20 +1,37 @@
 body {
-    background-image: url('https://www.naval-technology.com/wp-content/uploads/sites/15/2020/09/Naval-tech-trends-Aug-2020.jpg');
-    background-color: lightblue;
+    background-image: url('https://rare-gallery.com/uploads/posts/977107-artwork-military-submarine-vehicle-cyan-underwater.jpg');
     text-align: center;
 }
+
+.dark {
+    background-image: none;
+    background-color: black;
+}
+
+/* 'https://www.naval-technology.com/wp-content/uploads/sites/15/2020/09/Naval-tech-trends-Aug-2020.jpg' */
 
 td {
     border: 1px solid black;
 }
 
 h1 {
+    margin: 1%;
     font-style: italic;
-    color: aqua;
+    color: rgb(51, 0, 255);
 }
 
 h1:hover {
-    color: rgb(117, 15, 212);
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    padding: 0px;
+    margin: 1%;
+    color: red
+}
+
+h2:hover {
+    color: rgb(159, 6, 247);
 }
 
 button {
@@ -22,7 +39,8 @@ button {
     height: 20px;
     border: 2px solid black;
     background-color: lightblue;
-
+    font-style: italic;
+    color: black;
 }
 
 button:hover {
@@ -33,10 +51,15 @@ button:hover {
     text-align: center;
     margin: auto;
     border-radius: 50%;
+
     height: 40px;
     width: 40px;
     background-color: yellow;
-    font-size: large;
+    font-size: 17px;
+}
+
+.restart:hover {
+    background-color: purple;
 }
 
 .difficults {
@@ -65,7 +88,7 @@ table {
     height: 20px;
     text-align: center;
     transition: 0.5s;
-    background-color: rgb(10, 181, 223);
+    background-color: rgb(0, 198, 247);
 }
 
 
@@ -87,10 +110,15 @@ table {
     background-color: red;
 }
 
-h2 {
-    color: rgba(201, 10, 83, 0.907);
+footer {
+    color: white;
+    font-style: italic;
+    font-size: large;
+
 }
 
-h2:hover {
-    color: red;
+.modal h2 {
+    display: block;
+    color: yellow;
+    font-style: italic;
 }
